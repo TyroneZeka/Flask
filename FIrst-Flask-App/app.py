@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request, render_template
 app = Flask(__name__)
 
 stores = [{
-    'name':'My first Store',
+    'name':'My Store',
     'items':[
         {
             'name':'First Item',
@@ -67,8 +67,7 @@ def get_items_in_store():
     for store in stores:
         if store['name'] == name:
             return jsonify({'items':store['items']})
-
     return jsonify({'message':'Store not found'})
 
 
-app.run(port=5000)
+app.run(host="0.0.0.0", port=8000, debug = True)
